@@ -3,10 +3,16 @@ import Form from "./Form/Form";
 import handleData from './handleData';
 
 export default function Steps() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([{
+    date: '01.02.2021',
+    distance: '14',
+  }]);
+  console.log(data)
 
   const uploadData = (obj) => {
-    console.log(handleData(data, obj))
+    const arr = handleData(data, obj);
+    console.log(arr);
+    setData(arr);
   };
 
   return (
