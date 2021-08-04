@@ -1,7 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
 export default function handleData(arr, item) {
-
   arr.map((el) => {
     if (!el.index) {
       el.index = handleDate(el.date);

@@ -4,11 +4,16 @@ import PropTypes from 'prop-types';
 import checkDate from './checkDate';
 import checkDist from './checkDist';
 
-export default function Form({ upload }) {
+export default function Form({ upload, data }) {
   const [form, setForm] = useState({
     date: '',
     distance: '',
   });
+
+  if (data.editable !== undefined) {
+    form.date = data.editable.date;
+    form.distance = data.editable.distance;
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
