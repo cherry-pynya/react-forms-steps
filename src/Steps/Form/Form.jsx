@@ -19,6 +19,10 @@ export default function Form({ upload }) {
     e.preventDefault();
     if (checkDate(form.date) && checkDist(form.distance)) {
       upload(form);
+      setForm({
+        date: '',
+        distance: '',
+      });
     } else {
       return false;
     }
@@ -28,11 +32,11 @@ export default function Form({ upload }) {
     <form className='Steps-Form' onSubmit={handleSubmit}>
       <div className='Step-Form-label-container'>
         <label htmlFor='date'>Дата (ДД.ММ.ГГ)</label>
-        <input className='Step-Form-input' name='date' id='date' onChange={handleChange} />
+        <input className='Step-Form-input' name='date' id='date' onChange={handleChange} value={form.date} />
       </div>
       <div className='Step-Form-label-container'>
         <label htmlFor='distance'>Пройдено км</label>
-        <input className='Step-Form-input' name='distance' id='distance' onChange={handleChange} />
+        <input className='Step-Form-input' name='distance' id='distance' onChange={handleChange} value={form.distance} />
       </div>
       <div className='Step-Form-label-container'>
         <button type='submit' className='Step-Form-input'>ok</button>
