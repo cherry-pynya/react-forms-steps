@@ -7,14 +7,20 @@ import deleteData from './deleteData';
 export default function Steps() {
   const [data, setState] = useState({
     data: [],
-    editable: undefined,
+    editable: {
+      date: '',
+      distance: '',
+    },
   });
 
   const uploadData = (obj) => {
     const arr = handleData([...data.data], obj);
     setState({
       data: arr,
-      editable: undefined,
+      editable: {
+        date: '',
+        distance: '',
+      },
     });
   };
 
@@ -23,16 +29,23 @@ export default function Steps() {
       const arr = deleteData([...data.data], obj);
       setState({
         data: arr,
-        editable: undefined,
+        editable: {
+          date: '',
+          distance: '',
+        },
       });
       return;
     };
     if (obj.edit) {
       const item = data.data.find((el) => el.id === obj.id);
+      console.log('item', item)
       const arr = deleteData([...data.data], obj);
       setState({
         data: arr,
-        editable: item,
+        editable: {
+          date: item.date,
+          distance: item.distance,
+        },
       });
     }
   };

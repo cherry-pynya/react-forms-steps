@@ -24,8 +24,10 @@ export default function Item({item ,updateData}) {
       <div className='Dashboard-Item-dist'>
         <span>{distance}</span>
       </div>
-      <button className='Dashboard-Item-btn pencil' onClick={handleEdit}>✎</button>
-      <button className='Dashboard-Item-dist cross' onClick={handleDelete}>✘</button>
+      <div className='Dashboard-Item-btn-cnt'>
+        <button className='Dashboard-Item-btn pencil' onClick={handleEdit}>✎</button>
+        <button className='Dashboard-Item-btn cross' onClick={handleDelete}>✘</button>
+      </div>
     </div>
   );
 }

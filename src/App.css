@@ -1,0 +1,43 @@
+.Steps {
+  min-width: 900px;
+  max-width: 1000px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.Steps-Form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Step-Form-label-container {
+  margin-right: 10px;
+}
+
+.Step-Form-input {
+  margin-left: 5px;
+}
+
+.DashBoard {
+  margin-top: 20px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Dashboard-Item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Dashboard-Item-btn {
+  background-color: transparent;
+  border: none;
+}
