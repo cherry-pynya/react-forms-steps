@@ -5,8 +5,15 @@ import checkDate from './checkDate';
 import checkDist from './checkDist';
 
 export default function Form({ upload, data, editable }) {
-  console.log(editable)
+
   const [form, setForm] = useState(editable);
+
+  if (editable.date !== '') {
+    form.date = editable.date;
+    form.distance = editable.distance;
+    editable.date = '';
+    editable.distance = '';
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;

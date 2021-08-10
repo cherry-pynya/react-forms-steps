@@ -12,8 +12,8 @@ export default function Steps() {
   const [editable, setEditable] = useState({
     date: '',
     distance: '',
-  })
-
+  });
+  
   const uploadData = (obj) => {
     const arr = handleData([...data.data], obj);
     setState({
@@ -39,10 +39,13 @@ export default function Steps() {
     };
     if (obj.edit) {
       const item = data.data.find((el) => el.id === obj.id);
-      //const arr = deleteData([...data.data], obj);
+      const arr = deleteData([...data.data], obj);
       setEditable({
         date: item.date,
         distance: item.distance,
+      });
+      setState({
+        data: arr,
       });
     }
   };
