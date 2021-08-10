@@ -4,12 +4,9 @@ import PropTypes from 'prop-types';
 import checkDate from './checkDate';
 import checkDist from './checkDist';
 
-export default function Form({ upload, data }) {
-  console.log('data.editable', data.editable)
-  const [form, setForm] = useState({
-    date: data.editable.date,
-    distance: data.editable.distance,
-  });
+export default function Form({ upload, data, editable }) {
+  console.log(editable)
+  const [form, setForm] = useState(editable);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,16 +25,15 @@ export default function Form({ upload, data }) {
       return false;
     }
   }
-
   return(
     <form className='Steps-Form' onSubmit={handleSubmit}>
       <div className='Step-Form-label-container'>
         <label htmlFor='date'>Дата (ДД.ММ.ГГ)</label>
-        <input className='Step-Form-input' name='date' id='date' onChange={handleChange} value={form.date} />
+        <input className='Step-Form-input' name='date' id='date' onChange={handleChange} value={form.date} type='text' />
       </div>
       <div className='Step-Form-label-container'>
         <label htmlFor='distance'>Пройдено км</label>
-        <input className='Step-Form-input' name='distance' id='distance' onChange={handleChange} value={form.distance} />
+        <input className='Step-Form-input' name='distance' id='distance' onChange={handleChange} value={form.distance} type='text' />
       </div>
       <div className='Step-Form-label-container'>
         <button type='submit' className='Step-Form-input'>ok</button>

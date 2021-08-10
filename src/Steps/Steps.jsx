@@ -7,20 +7,21 @@ import deleteData from './deleteData';
 export default function Steps() {
   const [data, setState] = useState({
     data: [],
-    editable: {
-      date: '',
-      distance: '',
-    },
   });
+
+  const [editable, setEditable] = useState({
+    date: '',
+    distance: '',
+  })
 
   const uploadData = (obj) => {
     const arr = handleData([...data.data], obj);
     setState({
       data: arr,
-      editable: {
-        date: '',
-        distance: '',
-      },
+    });
+    setEditable({
+      date: '',
+      distance: '',
     });
   };
 
@@ -29,29 +30,25 @@ export default function Steps() {
       const arr = deleteData([...data.data], obj);
       setState({
         data: arr,
-        editable: {
-          date: '',
-          distance: '',
-        },
+      });
+      setEditable({
+        date: '',
+        distance: '',
       });
       return;
     };
     if (obj.edit) {
       const item = data.data.find((el) => el.id === obj.id);
-      console.log('item', item)
-      const arr = deleteData([...data.data], obj);
-      setState({
-        data: arr,
-        editable: {
-          date: item.date,
-          distance: item.distance,
-        },
+      //const arr = deleteData([...data.data], obj);
+      setEditable({
+        date: item.date,
+        distance: item.distance,
       });
     }
   };
   return (
     <div className='Steps'>
-      <Form upload={uploadData} data={data} />
+      <Form upload={uploadData} data={data} editable={editable} />
       {data.data.length > 0 ? <Dashboard data={data.data} updateData={updateData} /> : <div className='no-data'></div>}
     </div>
   );
